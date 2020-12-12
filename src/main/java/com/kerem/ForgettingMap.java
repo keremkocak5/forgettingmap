@@ -1,9 +1,9 @@
 package com.kerem;
 
-import com.kerem.Exception.ForgettingMapKeyNotFoundException;
-import com.kerem.Exception.ForgettingMapKeyNullException;
-import com.kerem.Exception.ForgettingMapNotInitializedException;
-import com.kerem.Exception.ForgettingMapValueNullException;
+import com.kerem.exception.ForgettingMapKeyNotFoundException;
+import com.kerem.exception.ForgettingMapKeyNullException;
+import com.kerem.exception.ForgettingMapNotInitializedException;
+import com.kerem.exception.ForgettingMapValueNullException;
 
 import java.util.HashMap;
 import java.util.LinkedList;

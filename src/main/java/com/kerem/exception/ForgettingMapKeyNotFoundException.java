@@ -1,4 +1,4 @@
-package com.kerem.Exception;
+package com.kerem.exception;
 
 public class ForgettingMapKeyNotFoundException extends RuntimeException {
 
