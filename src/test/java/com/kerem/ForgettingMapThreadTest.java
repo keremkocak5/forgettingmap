@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 public class ForgettingMapThreadTest {
 
     /**
-     * For this test, a ForgettingMap is created. Were the ForgettingMap not synchronized, then a
-     * ConcurrentModificationException would be thrown, or a race condition occurs, which
+     * For this test, a ForgettingMap is created. Were the ForgettingMap not synchronized, a race condition occurs, which
      * causes the assertions to fail.
      */
     @Test
