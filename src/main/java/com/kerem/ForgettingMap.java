@@ -15,7 +15,7 @@ public class ForgettingMap<K, V> {
     /**
      * A simple map structure, where the goal is to keep the most read values and remove the least read values when the
      * capacity of the ForgettingMap is exceeded.
-     * <p>
+     *
      * For efficiency, a HashMap and a LinkedList are combined in the ForgettingMap. A HashMap is efficient to retrieve a key and can store 'key'
      * and 'content' pairs. Since a HashMap is not ordered, it is not possible to use it to track the order of the elements. That's one of the reasons
      * why a LinkedList is used: it tracks the sequence of the elements. LinkedList is also efficient for deletion and insertions, and the
