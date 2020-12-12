@@ -121,7 +121,7 @@ public class ForgettingMap<K, V> {
     private synchronized void moveTheKeyToTopAndRemoveOldestElement(K key, V value) {
         forgettingMap.put(key, value); // always update the value of the key. cost O(1)
         if (!forgettingLinkedList.isEmpty() && forgettingLinkedList.peekLast().equals(key)) {
-            return; // no need to update the linkedList
+            return; // no need to update the linkedList if the key is equal to the linkedList's newest element.
         }
         if (!forgettingLinkedList.isEmpty() && forgettingLinkedList.contains(key)) {
             forgettingLinkedList.remove(key); // if key found in the linkedList, then remove it. cost O(1)
