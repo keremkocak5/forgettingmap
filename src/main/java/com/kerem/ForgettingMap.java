@@ -12,12 +12,24 @@ import java.util.Objects;
 
 public class ForgettingMap<K, V> {
 
+    /**
+     *  A simple map structure, where the goal is to keep the most read values and remove the least read values when the
+     *  capacity of the ForgettingMap is exceeded.
+     *
+     *  For efficiency, a HashMap and a LinkedList are combined in the ForgettingMap. A HashMap is efficient to retrieve a key and can store 'key'
+     *  and 'content' pairs. Since a HashMap is not ordered, it is not possible to use it to track the order of the elements. That's one of the reasons
+     *  why a LinkedList is used: it tracks the sequence of the elements. LinkedList is also efficient for deletion and insertions, and the
+     *  ForgettingMap does a lot of them.
+     *
+     * @author Kerem Kocak
+     */
+
     private final int capacity;
     private final Map<K, V> forgettingMap;
     private final LinkedList<K> forgettingLinkedList;
 
     /**
-     * Constructs Forgetting Map. Takes the capacity of the forgetting map as a parameter.
+     * Constructs Forgetting Map. Accepts the capacity of the forgetting map as a parameter.
      * Capacity must be greater than zero.
      *
      * @param capacity max number of elements in the map.
@@ -33,7 +45,7 @@ public class ForgettingMap<K, V> {
 
     /**
      * Adds an element into the Forgetting Map. The key and value are passed into the method.
-     * Key is added into the Forgetting Map as latest element. If the map exceeds the capacity,
+     * Key is added into the Forgetting Map as the latest element. If the map exceeds the capacity,
      * the least used element is removed.
      * This method is synchronized for the sake of thread-safety.
      *
