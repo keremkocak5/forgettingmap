@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 public class ForgettingMapThreadTest {
 
     /**
-     * For this test, a ForgettingMap is created. Were the ForgettingMap not synchronized, a race condition occurs, which
-     * causes the assertions to fail.
+     * For this test, a ForgettingMap is created, and accessed and modified by two threads. Were the ForgettingMap not synchronized,
+     * a race condition would occur, causing assertions to fail.
      */
     @Test
     public void find_shouldReturnValue_whenMultipleThreadsAddIntoForgettingMap() throws InterruptedException {
