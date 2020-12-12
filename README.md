@@ -21,4 +21,3 @@ mvn clean test
 - Junit 5.5.2
 - maven 3.6.3
 - maven-surefire-plugin 2.22.2
-
