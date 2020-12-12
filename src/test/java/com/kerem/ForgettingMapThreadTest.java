@@ -12,9 +12,9 @@ public class ForgettingMapThreadTest {
      */
     @Test
     public void find_shouldReturnValue_whenMultipleThreadsAddIntoForgettingMap() throws InterruptedException {
-        int threadName1 = 1000;
-        int threadName2 = 2000;
-        ForgettingMap<Integer, Integer> forgettingMap = new ForgettingMap<>(1800);
+        int threadName1 = 10000;
+        int threadName2 = 20000;
+        ForgettingMap<Integer, Integer> forgettingMap = new ForgettingMap<>(18000);
         AddToAndFindFromForgettingMap thread1 = new AddToAndFindFromForgettingMap(forgettingMap);
         AddToAndFindFromForgettingMap thread2 = new AddToAndFindFromForgettingMap(forgettingMap);
         thread1.setName(String.valueOf(threadName1));
@@ -23,8 +23,8 @@ public class ForgettingMapThreadTest {
         thread2.start();
         thread1.join();
         thread2.join();
-        Assertions.assertEquals(forgettingMap.getSize(), 1800);
-        for (int i = 0; i < 900; i++) {
+        Assertions.assertEquals(forgettingMap.getSize(), 18000);
+        for (int i = 0; i < 9000; i++) {
             Assertions.assertEquals(forgettingMap.find(threadName1 + i), threadName1 + i);
             Assertions.assertEquals(forgettingMap.find(threadName2 + i), threadName2 + i);
         }
@@ -39,7 +39,7 @@ public class ForgettingMapThreadTest {
         }
 
         public void run() {
-            for (int i = 0; i < 900; i++) {
+            for (int i = 0; i < 9000; i++) {
                 forgettingMap.add(Integer.valueOf(Thread.currentThread().getName()) + i, Integer.valueOf(Thread.currentThread().getName()) + i);
             }
         }
